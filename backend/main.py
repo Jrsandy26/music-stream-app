@@ -2,8 +2,10 @@ from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import sessionmaker, declarative_base, Session
+import database as db_file # To avoid circular imports
 from jose import jwt
 from passlib.context import CryptContext
+from pydantic import BaseModel
 
 from ytmusicapi import YTMusic
 import yt_dlp
@@ -209,3 +211,4 @@ def recommend(user_id: int, db: Session = Depends(get_db)):
             })
 
     return recommendations
+
