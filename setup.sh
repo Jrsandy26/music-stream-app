@@ -5,8 +5,8 @@ echo "Setting up HydeMusic streaming app..."
 # Backend setup
 cd backend
 
-python -m venv venv
-source venv/bin/activate
+conda activate base
+venv\Scripts\activate
 
 pip install -r requirements.txt
 
